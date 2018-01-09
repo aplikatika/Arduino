@@ -144,6 +144,7 @@ using fs::FSInfo;
 
 #if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_SPIFFS)
 extern fs::FS SPIFFS;
+bool SPIFFS_gc(uint32_t pagesOrSize = 0, bool quick = true);
 #endif
 
 #endif //FS_H

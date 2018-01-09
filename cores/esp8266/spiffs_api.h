@@ -165,6 +165,15 @@ public:
         return true;
     }
 
+    bool gc(uint32_t pagesOrSize, bool quick)
+    {
+        if (quick) {
+            return SPIFFS_gc_quick(&_fs, pagesOrSize) == SPIFFS_OK;
+        } else {
+            return SPIFFS_gc(&_fs, pagesOrSize) != SPIFFS_ERR_FULL;
+        }
+    }
+
 protected:
     friend class SPIFFSFileImpl;
     friend class SPIFFSDirImpl;
